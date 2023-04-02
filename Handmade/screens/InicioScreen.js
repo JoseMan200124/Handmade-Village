@@ -7,8 +7,11 @@ import ButtonGradient from '../ButtonGradient';
 import { store } from '../redux/store';
 
 function InicioScreen({ navigation }) {
-  const ARTESANO_USERNAME = 'artesano';
-  const ARTESANO_PASSWORD = 'artesano123';
+  //La API no deja agregar más de 100 datos de personas, por lo que para los incisos de crear simule los dos usuarios además de hacer toda la conexión a la API y lo solicitado
+  const ARTESANO_USERNAME = 'artesano'; //Simulación de artesano username
+  const ARTESANO_PASSWORD = '123';// simulación de artesano password
+  const TURISTA_USERNAME = 'turista';// simulación de turista username
+  const TURISTA_PASSWORD = '123';// simulación de turista password
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -16,7 +19,11 @@ function InicioScreen({ navigation }) {
   const handleLogin = async () => {
     if (username === ARTESANO_USERNAME && password === ARTESANO_PASSWORD) {
       console.log('Usuario artesano ha iniciado sesión');
-      navigation.navigate('Productos');
+      navigation.navigate('Perfil', { userId: 30 });
+    }else if(username === TURISTA_USERNAME && password === TURISTA_PASSWORD){
+      console.log('Usuario turista ha iniciado sesión');
+      navigation.navigate('Perfil', { userId: 1 });
+
     } else {
       try {
         console.log(username, password);

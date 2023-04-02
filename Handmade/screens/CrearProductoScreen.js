@@ -35,7 +35,6 @@ export default function CrearProductoScreen({ navigation }) {
       alert(`Producto creado con el ID: ${productId}`);
 
       // Navegar al detalle del producto
-      navigation.navigate('DetalleProducto', { productId });
     } catch (error) {
       console.error('Error al crear el producto:', error);
       alert('Ha ocurrido un error al crear el producto. Por favor, inténtelo de nuevo más tarde.');
