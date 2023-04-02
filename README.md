@@ -29,7 +29,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/JoseMan200124">
-    <img src="https://raw.githubusercontent.com/JoseMan200124/Handmade-Village/main/LOGOS%20DE%20APLICACION/MARCA%20DE%20LA%20EMPRESA/logo_white_background.jpg?token=GHSAT0AAAAAACA4FS2AEQII26JLK7ZW5QR4ZBJCQSA" alt="Logo" width="250" height="200">
+    <img src="Handmade/assets/github.jpg" alt="Logo" width="250" height="200">
   </a>
 
   <h3 align="center">HandMade Village</h3>
