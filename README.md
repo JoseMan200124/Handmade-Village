@@ -46,7 +46,7 @@ HACK THE FUTURE
 En un pueblo donde se desarrollan artesanías y a su vez es visitada por turistas, la población local necesita una aplicación móvil donde puedan colocar sus productos y a través de la misma app los turistas puedan realizar sus reservas de productos (No pago en línea) para impulsar la economía local de dicha comunidad.
 
 <img src="Handmade/assets/iphone.jpeg" alt="telefonoIphone">
-<img src="Handmade/assets/iphone.jpeg" alt="telefonoAndroid">
+<img src="Handmade/assets/android.jpeg" alt="telefonoAndroid">
 <h1>Mi experiencia en Hack The Future</h1>
 
 Tuve una experiencia increíblemente gratificante con el reto. Fue la primera vez que trabajé con REACT NATIVE y, aunque no pude completarlo en su totalidad, logré avanzar significativamente gracias al apoyo y los recursos que me brindaron. Me encantaría continuar trabajando con el equipo de Eagle Hubs, ya que ha sido una de las mejores experiencias que he tenido. Agradezco mucho por la oportunidad que me brindaron y por el tiempo y el esfuerzo que invirtieron en mí. ¡Gracias de nuevo!
