@@ -11,6 +11,11 @@ import UserProfileScreen from './screens/perfil';
 import CrearProductoScreen from './screens/CrearProductoScreen';
 import ListarReservasScreen from './screens/ListarReservasScreen';
 import MarcarReservaScreen from './screens/MarcarReservaScreen';
+import ProductosScreenTuristas from './screens/ProductosScreenTuristas';
+import ProductDetailScreen from './screens/ProductoScreenDetalle';
+import CarritoScreen from './screens/carritoScreen';
+import CartScreen from './screens/mostrarCarrito';
+import QuienesSomosScreen from './screens/QuienesSomosScreen';
 const Stack = createStackNavigator();
 
 export default function App() {
@@ -25,6 +30,11 @@ export default function App() {
           <Stack.Screen name="CrearProducto" component={CrearProductoScreen} />
           <Stack.Screen name="ListarReserva" component={ListarReservasScreen} />
           <Stack.Screen name="MarcarReserva" component={MarcarReservaScreen} />
+          <Stack.Screen name="ProductosTuristas" component={ProductosScreenTuristas} />
+          <Stack.Screen name="ProductosTuristasDetalle" component={ProductDetailScreen} />
+          <Stack.Screen name="Carrito" component={CarritoScreen} />
+          <Stack.Screen name="CarritoMostrar" component={CartScreen} />
+          <Stack.Screen name="QuieneSomos" component={QuienesSomosScreen} />
 
         </Stack.Navigator>
       </NavigationContainer>

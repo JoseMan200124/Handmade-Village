@@ -57,25 +57,25 @@ function UserProfileScreen({ route,navigation }) {
     {
       text: 'Obtener los productos ',
       icon: require('../assets/icon.png'),
-      name: 'ObtenerProductos ',
+      name: 'ProductosTuristas',
       position: 1,
     },
     {
       text: 'Mostrar el detalle',
       icon: require('../assets/icon.png'),
-      name: 'MostrarDetalle',
+      name: 'ProductosTuristasDetalle',
       position: 2,
       },
       {
       text: 'Agregar al carrito',
       icon: require('../assets/icon.png'),
-      name: 'AgregarAlCarrito',
+      name: 'Carrito',
       position: 3,
       },
       {
       text: 'Mostrar Carrito',
       icon: require('../assets/icon.png'),
-      name: 'MostrarCarrito',
+      name: 'CarritoMostrar',
       position: 4,
       },
       ];

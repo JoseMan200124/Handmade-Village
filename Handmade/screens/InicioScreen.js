@@ -68,6 +68,9 @@ function InicioScreen({ navigation }) {
         value={password}
         onChangeText={setPassword}
       />
+      <TouchableOpacity onPress={() => navigation.navigate('QuieneSomos')}>
+  <Text style={styles.quienesSomosText}>¿Quiénes somos?</Text>
+</TouchableOpacity>
       <Text style={styles.texto}>¿Haz olvidado tu contraseña?</Text>
       <ButtonGradient onPress={handleLogin} />
       <TouchableOpacity onPress={() => navigation.navigate('Registro')}>
