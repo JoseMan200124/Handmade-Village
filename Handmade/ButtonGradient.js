@@ -1,5 +1,5 @@
 import React from "react"; 
-import { StyleSheet, Text, View, TextInput, Button,Dimensions, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import {LinearGradient} from 'expo-linear-gradient'; 
 
 export default function ButtonGradient ({ onPress }) {

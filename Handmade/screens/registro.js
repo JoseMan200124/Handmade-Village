@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, Button, Image } from 'react-native';
-import SweetAlert from 'react-native-sweet-alert';
-
 import axios from 'axios';
 
 export default function RegistroScreen() {
@@ -71,40 +69,41 @@ export default function RegistroScreen() {
   );
 }
 
+// ... (Los estilos)
 const styles = StyleSheet.create({
-    logo: {
-        width: 200,
-        height: 100,
-        marginBottom: 20,
-      },
-  container: {
-    flex: 1,
-    backgroundColor: '#2A363B',
-    justifyContent: 'center',
-    padding: 20,
-  },
-  label: {
-    fontSize: 18,
-    color: '#fff',
-    fontWeight: 'bold',
-    marginBottom: 5,
-  },
-  input: {
-    
-    height: 40,
-    borderColor: '#fff',
-    borderWidth: 1,
-    borderRadius: 5,
-    marginBottom: 10,
-    paddingHorizontal: 10,
-  },
-  buttonContainer: {
-    
-    marginTop: 20,
-    backgroundColor: '#99B898',
-    borderRadius: 5,
-  },
-  buttonStyle:{
-    color:'white', 
-  }
+  logo: {
+      width: 200,
+      height: 100,
+      marginBottom: 20,
+    },
+container: {
+  flex: 1,
+  backgroundColor: '#2A363B',
+  justifyContent: 'center',
+  padding: 20,
+},
+label: {
+  fontSize: 18,
+  color: '#fff',
+  fontWeight: 'bold',
+  marginBottom: 5,
+},
+input: {
+  
+  height: 40,
+  borderColor: '#fff',
+  borderWidth: 1,
+  borderRadius: 5,
+  marginBottom: 10,
+  paddingHorizontal: 10,
+},
+buttonContainer: {
+  
+  marginTop: 20,
+  backgroundColor: '#99B898',
+  borderRadius: 5,
+},
+buttonStyle:{
+  color:'white', 
+}
 });
