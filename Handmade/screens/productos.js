@@ -24,7 +24,7 @@ export default function ProductoScreen() {
 
   return (
     <View style={styles.container}>
-              <Text>Los productos son: </Text>
+              <Text>Los productos son:</Text>
 
       {isLoading ? (
         <ActivityIndicator />

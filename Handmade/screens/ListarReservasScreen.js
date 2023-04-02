@@ -1,7 +1,7 @@
 // screens/ListarReservasScreen.js
 
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, FlatList, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, FlatList, TouchableOpacity,ScrollView } from 'react-native';
 import axios from 'axios';
 
 export default function ListarReservasScreen({ navigation }) {

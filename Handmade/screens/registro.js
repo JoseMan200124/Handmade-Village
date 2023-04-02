@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, Button, Image,Switch } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button, Image,Switch,ScrollView } from 'react-native';
 import axios from 'axios';
 
 export default function RegistroScreen() {

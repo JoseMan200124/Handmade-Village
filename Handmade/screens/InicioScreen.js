@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image,ScrollView } from 'react-native';
 import axios from 'axios';
 
 import ButtonGradient from '../ButtonGradient';
@@ -30,7 +30,9 @@ function InicioScreen({ navigation }) {
         const token = response.data.token;
         console.log(token);
         store.dispatch({ type: 'SET_TOKEN', payload: token });
-        navigation.navigate('Productos');
+        userId = response.data.id;
+
+        navigation.navigate('Perfil', { userId });
       } catch (error) {
         if (error.response && error.response.status === 400) {
           alert("Usuario o contraseña incorrectos, porfavor ingresa credenciales correctas ");
