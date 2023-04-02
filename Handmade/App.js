@@ -1,54 +1,33 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react'
-import { StyleSheet, Text, View, TextInput, Dimensions } from 'react-native';
-import Svg, {Path, Defs, LinearGradient, Stop} from "react-native-svg"; 
-const {width, height} = Dimensions.get('window')
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { PersistGate } from 'redux-persist/integration/react';
+import { store, persistor } from './redux/store';
+import InicioScreen from './screens/InicioScreen';
+import RegistroScreen from './screens/registro';
+import ProductoScreen from './screens/productos';
+import UserProfileScreen from './screens/perfil';
+import CrearProductoScreen from './screens/CrearProductoScreen';
+import ListarReservasScreen from './screens/ListarReservasScreen';
+import MarcarReservaScreen from './screens/MarcarReservaScreen';
+const Stack = createStackNavigator();
+
 export default function App() {
-
-
-  function SvgTop(){
-    return (
-      
-    )
-  }
   return (
-    <View style={styles.container}>
-      <Text style={styles.titulo}>Hola.</Text>
-      <Text style={styles.subTitle}>Inicia sesión con tu cuenta</Text>
-  <TextInput placeholder='jmancaste@gmail.com' style={styles.textInput}></TextInput>
-  <TextInput placeholder='contraseña' style={styles.textInput}></TextInput>
+    <PersistGate loading={null} persistor={persistor}>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Inicio" component={InicioScreen} />
+          <Stack.Screen name="Registro" component={RegistroScreen} />
+          <Stack.Screen name="Productos" component={ProductoScreen} />
+          <Stack.Screen name="Perfil" component={UserProfileScreen} />
+          <Stack.Screen name="CrearProducto" component={CrearProductoScreen} />
+          <Stack.Screen name="ListarReserva" component={ListarReservasScreen} />
+          <Stack.Screen name="MarcarReserva" component={MarcarReservaScreen} />
 
-      <StatusBar style="auto" />
-    </View>
+        </Stack.Navigator>
+      </NavigationContainer>
+    </PersistGate>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#f1f1f1',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  titulo: {
-    fontSize: 80,
-    color:'#34434D',
-    fontWeight: 'bold',
-  },
-  subTitle: {
-    fontSize: 20,
-    color:'gray',
-  },
-  textInput: {
-    borderWidth:1,
-    borderColor: 'gray',
-    padding: 10,
-    paddingStart: 30, 
-    width:'80%',
-    marginTop: 20,
-    height:50,
-    borderRadius: 30,
-    backgroundColor: '#fff',
-
-  }
-});
