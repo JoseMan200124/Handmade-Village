@@ -1,52 +1,74 @@
-import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, Button, Image } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View, TextInput, TouchableOpacity, Image } from 'react-native';
 import axios from 'axios';
+
 import ButtonGradient from '../ButtonGradient';
-import { store } from '../redux/store'; // Importar la variable store de store.js
+import { store } from '../redux/store';
+
 function InicioScreen({ navigation }) {
+  const ARTESANO_USERNAME = 'artesano';
+  const ARTESANO_PASSWORD = 'artesano123';
+
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLogin = async () => {
-    try {
-      console.log(username, password);
-  
-      const response = await axios.post('https://dummyjson.com/auth/login', {
-        username,
-        password,
-      });
-      console.log(response.data);
-  
-      const token = response.data.token;
-      console.log(token);
-      store.dispatch({ type: 'SET_TOKEN', payload: token });
+    if (username === ARTESANO_USERNAME && password === ARTESANO_PASSWORD) {
+      console.log('Usuario artesano ha iniciado sesión');
       navigation.navigate('Productos');
-    } catch (error) {
-      if (error.response && error.response.status === 400) {
-        alert("Usuario o contraseña incorrectos, porfavor ingresa credenciales correctas ");
-      } else {
-        console.log(error); 
-        alert("Ocurrió un error al intentar iniciar sesión. Por favor, inténtalo de nuevo más tarde.");
+    } else {
+      try {
+        console.log(username, password);
+
+        const response = await axios.post('https://dummyjson.com/auth/login', {
+          username,
+          password,
+        });
+        console.log(response.data);
+
+        const token = response.data.token;
+        console.log(token);
+        store.dispatch({ type: 'SET_TOKEN', payload: token });
+        navigation.navigate('Productos');
+      } catch (error) {
+        if (error.response && error.response.status === 400) {
+          alert("Usuario o contraseña incorrectos, porfavor ingresa credenciales correctas ");
+        } else {
+          console.log(error);
+          alert("Ocurrió un error al intentar iniciar sesión. Por favor, inténtalo de nuevo más tarde.");
+        }
       }
     }
   };
-  
+
   return (
     <View style={styles.container}>
       <Image source={require('../assets/logoEmpresa.png')} style={styles.logo} />
       <Text style={styles.titulo}>Hola.</Text>
       <Text style={styles.subTitle}>Inicia sesión con tu cuenta</Text>
-      <TextInput placeholder='usuarios' style={styles.textInput} value={username} onChangeText={setUsername}></TextInput>
-      <TextInput placeholder='contraseña' style={styles.textInput} secureTextEntry={true} value={password} onChangeText={setPassword}></TextInput>
+      <TextInput
+        placeholder='usuarios'
+        style={styles.textInput}
+        value={username}
+        onChangeText={setUsername}
+      />
+      <TextInput
+        placeholder='contraseña'
+        style={styles.textInput}
+        secureTextEntry={true}
+        value={password}
+        onChangeText={setPassword}
+      />
       <Text style={styles.texto}>¿Haz olvidado tu contraseña?</Text>
-      <ButtonGradient onPress={handleLogin}/>
-      <Button title='¿No estás registrado?' onPress={() => navigation.navigate('Registro')} />
+      <ButtonGradient onPress={handleLogin} />
+      <TouchableOpacity onPress={() => navigation.navigate('Registro')}>
+        <Text style={styles.registroText}>¿No estás registrado?</Text>
+      </TouchableOpacity>
       <StatusBar style="auto" />
     </View>
   );
 }
-
 // ... (Los estilos)
 const styles = StyleSheet.create({
   container: {

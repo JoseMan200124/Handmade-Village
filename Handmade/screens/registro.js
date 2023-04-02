@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, Button, Image } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button, Image,Switch } from 'react-native';
 import axios from 'axios';
 
 export default function RegistroScreen() {
@@ -10,6 +10,7 @@ export default function RegistroScreen() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [gender, setGender] = useState('');
+  const [isArtisan, setIsArtisan] = useState(false);
 
   const handleRegistro = async () => {
     if (!firstName || !lastName || !age || !email || !username || !password || !gender) {
@@ -25,6 +26,7 @@ export default function RegistroScreen() {
         username,
         password,
         gender,
+        isArtisan, // Agregar este campo
       });
       const userId = response.data.id;
       console.log('Usuario creado con el ID:', userId);
@@ -62,6 +64,17 @@ export default function RegistroScreen() {
       <TextInput style={styles.input} value={password} onChangeText={setPassword} secureTextEntry color="white"/>
       <Text style={styles.label}>Género:</Text>
       <TextInput style={styles.input} value={gender} onChangeText={setGender} color="white"/>
+      <Text style={styles.label}>Artesano:</Text>
+      <View style={styles.switchContainer}>
+      <Switch
+          trackColor={{ false: '#767577', true: '#81b0ff' }}
+          thumbColor={isArtisan ? '#f5dd4b' : '#f4f3f4'}
+          ios_backgroundColor="#3e3e3e"
+          onValueChange={() => setIsArtisan(!isArtisan)}
+          value={isArtisan}
+        />
+      </View>
+
       <View style={styles.buttonContainer}>
         <Button style={styles.buttonStyle} title="Registrar" onPress={handleRegistro} color="white"/>
       </View>
