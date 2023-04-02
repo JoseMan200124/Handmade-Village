@@ -18,11 +18,10 @@ function InicioScreen({ navigation }) {
 
   const handleLogin = async () => {
     if (username === ARTESANO_USERNAME && password === ARTESANO_PASSWORD) {
-      console.log('Usuario artesano ha iniciado sesión');
-      navigation.navigate('Perfil', { userId: 30 });
+      navigation.navigate('Perfil', { userId: 30, userType: 'artesano' });
+
     }else if(username === TURISTA_USERNAME && password === TURISTA_PASSWORD){
-      console.log('Usuario turista ha iniciado sesión');
-      navigation.navigate('Perfil', { userId: 1 });
+      navigation.navigate('Perfil', { userId: 1, userType: 'turista' });
 
     } else {
       try {
