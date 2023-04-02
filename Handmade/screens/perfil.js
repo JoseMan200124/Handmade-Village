@@ -2,14 +2,18 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Image,ScrollView } from 'react-native';
 import axios from 'axios';
 import { FloatingAction } from 'react-native-floating-action';
-
 function UserProfileScreen({ route,navigation }) {
   const [userData, setUserData] = useState(null);
+  const [userType, setUserType]= useState('');
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const userId = route.params?.userId;
+        userTypeFromRoute = route.params?.userType;
+        console.log(userTypeFromRoute); 
+        setUserType(userTypeFromRoute);
+
         if (!userId) {
           throw new Error("UserId is undefined.");
         }
@@ -23,8 +27,7 @@ function UserProfileScreen({ route,navigation }) {
 
     fetchData();
   }, [route.params]);
-
-  const actions = [
+  const artesanoActions = [
     {
       text: 'Crear Producto',
       icon: require('../assets/icon.png'),
@@ -50,8 +53,34 @@ function UserProfileScreen({ route,navigation }) {
       position: 4,
     },
   ];
-
-  const handleActionPress = (name) => {
+  const turistaActions = [
+    {
+      text: 'Obtener los productos ',
+      icon: require('../assets/icon.png'),
+      name: 'ProductosTuristas',
+      position: 1,
+    },
+    {
+      text: 'Mostrar el detalle',
+      icon: require('../assets/icon.png'),
+      name: 'ProductosTuristasDetalle',
+      position: 2,
+      },
+      {
+      text: 'Agregar al carrito',
+      icon: require('../assets/icon.png'),
+      name: 'Carrito',
+      position: 3,
+      },
+      {
+      text: 'Mostrar Carrito',
+      icon: require('../assets/icon.png'),
+      name: 'CarritoMostrar',
+      position: 4,
+      },
+      ];
+      const actions = userType === 'artesano' ? artesanoActions : turistaActions;
+      const handleActionPress = (name) => {
     navigation.navigate(name);
   };
 

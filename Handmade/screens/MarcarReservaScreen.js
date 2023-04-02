@@ -5,7 +5,7 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 import axios from 'axios';
 
 export default function MarcarReservaScreen({ route, navigation }) {
-  const { id, completed } = route.params;
+  const { id, completed } = route.params ?? { id: undefined, completed: false };
 
   const handleMarcarReserva = async () => {
     try {
